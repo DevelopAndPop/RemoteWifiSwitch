@@ -9,7 +9,7 @@ import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
-import requests
+# import requests
 
 kivy.require('2.1.0')
 
@@ -18,26 +18,29 @@ class MyRoot(BoxLayout):
         super(MyRoot, self).__init__()
 
     def checkSwitchStatus(self):
-        statusHTML =  requests.get('http://192.168.0.100/control.html?GET=state')
+        test =1
+        # statusHTML =  requests.get('http://192.168.0.100/control.html?GET=state')
 
-        if statusHTML.text.__contains__('STATE=ON'):
-            statusWifi = "Steckdose AN"
-        elif statusHTML.text.__contains__('STATE=OFF'):
-            statusWifi = "Steckdose AUS"
-        else:
-            statusWifi = "Satus N/A"
+        # if statusHTML.text.__contains__('STATE=ON'):
+        #     statusWifi = "Steckdose AN"
+        # elif statusHTML.text.__contains__('STATE=OFF'):
+        #     statusWifi = "Steckdose AUS"
+        # else:
+        #     statusWifi = "Satus N/A"
 
-        return statusWifi
+        # return statusWifi
 
     def switchOn(self):
-        requests.get('http://192.168.0.100/control.html?STATE=1')
-        requests.get('http://192.168.0.100/control.html?GET=state')
-        self.status_Switch.text = self.checkSwitchStatus()
+        test =1
+        # requests.get('http://192.168.0.100/control.html?STATE=1')
+        # requests.get('http://192.168.0.100/control.html?GET=state')
+        # self.status_Switch.text = self.checkSwitchStatus()
               
     def switchOff(self):
-        requests.get('http://192.168.0.100/control.html?STATE=0')
-        requests.get('http://192.168.0.100/control.html?GET=state')
-        self.status_Switch.text = self.checkSwitchStatus()
+        test =1
+        # requests.get('http://192.168.0.100/control.html?STATE=0')
+        # requests.get('http://192.168.0.100/control.html?GET=state')
+        # self.status_Switch.text = self.checkSwitchStatus()
 
 class RemoteWifi(App):
     def build(self):
