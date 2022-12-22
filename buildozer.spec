@@ -4,7 +4,7 @@
 title = RemoteWifiSwitch
 
 # (str) Package name
-package.name = myapp
+package.name = remotewifi
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
@@ -29,7 +29,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+version = 0.3
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -37,17 +37,17 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.9.0,kivy==2.1.0,pillow,sdl2_ttf,altgraph==0.17,certifi,idna==3.4,docutils==0.19,charset-normalizer==2.1.1
+requirements = python3==3.9.0,kivy==2.1.0,pillow
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
 
 # (str) Presplash of the application
-#presplash.filename = %(source.dir)s/data/presplash.png
+presplash.filename = data/presplash.png
 
 # (str) Icon of the application
-#icon.filename = %(source.dir)s/data/icon.png
+icon.filename = data/icon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait

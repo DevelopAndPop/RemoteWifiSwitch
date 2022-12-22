@@ -17,29 +17,29 @@ class MyRoot(BoxLayout):
     def __init__(self):
         super(MyRoot, self).__init__()
 
-    def checkSwitchStatus(self):
-        statusHTML =  requests.get('https://www.google.de/')
+    # def checkSwitchStatus(self):
+    #     statusHTML =  requests.get('https://www.google.de/')
 
-        if statusHTML.text.__contains__('STATE=ON'):
-            statusWifi = "Steckdose AN"
-        elif statusHTML.text.__contains__('STATE=OFF'):
-            statusWifi = "Steckdose AUS"
-        else:
-            statusWifi = "Satus N/A"
+    #     if statusHTML.text.__contains__('STATE=ON'):
+    #         statusWifi = "Steckdose AN"
+    #     elif statusHTML.text.__contains__('STATE=OFF'):
+    #         statusWifi = "Steckdose AUS"
+    #     else:
+    #         statusWifi = "Satus N/A"
 
-        return statusWifi
+    #     return statusWifi
 
-    def switchOn(self):
+    # def switchOn(self):
 
-        requests.get('https://www.google.de/')
+    #     requests.get('https://www.google.de/')
 
-        self.status_Switch.text = self.checkSwitchStatus()
+    #     self.status_Switch.text = self.checkSwitchStatus()
               
-    def switchOff(self):
+    # def switchOff(self):
 
-        requests.get('https://www.google.de/')
+    #     requests.get('https://www.google.de/')
 
-        self.status_Switch.text = self.checkSwitchStatus()
+    #     self.status_Switch.text = self.checkSwitchStatus()
 
 class RemoteWifi(App):
     def build(self):
