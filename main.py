@@ -9,8 +9,6 @@ import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
-
-import time
 import requests
 
 kivy.require('2.1.0')
