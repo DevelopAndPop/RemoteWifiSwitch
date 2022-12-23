@@ -8,6 +8,7 @@
 import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.network.urlrequest import UrlRequest
 
 # import requests
 
@@ -30,15 +31,13 @@ class MyRoot(BoxLayout):
     #     return statusWifi
 
     def switchOn(self):
-        test = 2
-
+        UrlRequest('http://192.168.0.100/control.html?STATE=1')
     #     requests.get('https://www.google.de/')
 
     #     self.status_Switch.text = self.checkSwitchStatus()
               
     def switchOff(self):
-        test = 1
-
+        UrlRequest('http://192.168.0.100/control.html?STATE=0')
     #     requests.get('https://www.google.de/')
 
     #     self.status_Switch.text = self.checkSwitchStatus()
