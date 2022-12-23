@@ -29,13 +29,15 @@ class MyRoot(BoxLayout):
 
     #     return statusWifi
 
-    # def switchOn(self):
+    def switchOn(self):
+        test = 2
 
     #     requests.get('https://www.google.de/')
 
     #     self.status_Switch.text = self.checkSwitchStatus()
               
-    # def switchOff(self):
+    def switchOff(self):
+        test = 1
 
     #     requests.get('https://www.google.de/')
 
