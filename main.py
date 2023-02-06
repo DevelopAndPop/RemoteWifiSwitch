@@ -1,50 +1,90 @@
-# To-Dos:
-#   - Manuell einstellbare Dauer → HTTP-Links müssen angepasst werden
-#   - Aktueller Stecker-Status beim Start der App anzeigen
-#   - Design ändern (für mehrere Stecker vorbereiten)
-# --------------------
-
-
 import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.network.urlrequest import UrlRequest
-
-# import requests
+from kivy.uix.slider import Slider
+from kivy.properties import BooleanProperty
+import Global
 
 kivy.require('2.1.0')
 
 class MyRoot(BoxLayout):
-    def __init__(self):
-        super(MyRoot, self).__init__()
 
-    # def checkSwitchStatus(self):
-    #     statusHTML =  requests.get('https://www.google.de/')
+        def __init__(self):
+            super(MyRoot, self).__init__()
+            # print(self.ids) → used for listing up available objects in .kv file
+            self.checkSwitchStatus('192.168.0.100', 'switch1')
+                
+        def request_callback(self, req, result):
+            print(f'HttpStatus: {req.resp_status}')
+            print(f'Response Headers: {req.resp_headers}')
+            print(f'Response: {result}')
 
-    #     if statusHTML.text.__contains__('STATE=ON'):
-    #         statusWifi = "Steckdose AN"
-    #     elif statusHTML.text.__contains__('STATE=OFF'):
-    #         statusWifi = "Steckdose AUS"
-    #     else:
-    #         statusWifi = "Satus N/A"
+        def switch_click(self, switchIP, switchID):
+            httpResult = self.checkSwitchStatus(switchIP, switchID)
+            httpResult.wait()
+            
+            #print(httpResult.result)
+        
+            if "STATE=ON" in httpResult.result:
+                {
+                    UrlRequest('http://192.168.0.100/control.html?STATE=0')
+                }
 
-    #     return statusWifi
+            elif "STATE=OFF" in httpResult.result:
+                {
+                    UrlRequest('http://192.168.0.100/control.html?STATE=1')
+                }
+            
+            httpResult = self.checkSwitchStatus(switchIP, switchID)
+            
+        def checkSwitchStatus(self, switchIP, switchID):
+            ipadress = 'http://' + switchIP + '/control.html?GET=state'
+            httpResult = UrlRequest(ipadress, self.request_callback, debug=True)
+            httpResult.wait()
 
-    def switchOn(self):
-        UrlRequest('http://192.168.0.100/control.html?STATE=1')
-    #     requests.get('https://www.google.de/')
+            if switchID   == 'switch1':
+                switchStatus = 'id_status_switch'
+                switchName = 'id_switch'
+            elif switchID == 'switch2':
+                switchStatus = 'id_status_switch2'
+                switchName = 'id_switch2'
+            elif switchID == 'switch3':
+                switchStatus = 'id_status_switch3'
+                switchName = 'id_switch3'
+            elif switchID == 'switch4':
+                switchStatus = 'id_status_switch4'
+                switchName = 'id_switch4'
+            else: print('Steckdose undefiniert!')
 
-    #     self.status_Switch.text = self.checkSwitchStatus()
-              
-    def switchOff(self):
-        UrlRequest('http://192.168.0.100/control.html?STATE=0')
-    #     requests.get('https://www.google.de/')
+            if "STATE=OFF" in httpResult.result:
+                self.ids[switchStatus].text = "Ist Aus"
+                self.ids[switchStatus].color = 'darkred'              
 
-    #     self.status_Switch.text = self.checkSwitchStatus()
+            elif "STATE=ON" in httpResult.result:
+                self.ids[switchStatus].text = "Ist An"
+                self.ids[switchStatus].color = 'darkgreen'       
+            
+            return httpResult
+        
+        def initializeWifiStatus(self, switchIP):
+            ipadress = 'http://' + switchIP + '/control.html?GET=state'
+            httpResult = UrlRequest(ipadress, self.request_callback, debug=True)
+            httpResult.wait()
+            
+            if "STATE=ON" in httpResult.result:
+                wifiStatusBool = True
+                
+            elif "STATE=OFF" in httpResult.result:
+                wifiStatusBool = False
+
+            return wifiStatusBool
+
 
 class RemoteWifi(App):
     def build(self):
+        # print(dir(self.root))
         return MyRoot()
 
 remoteWifi = RemoteWifi()
-remoteWifi.run()      
+RemoteWifi().run()      
