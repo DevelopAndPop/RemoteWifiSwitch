@@ -6,94 +6,247 @@
     id_status_switch3: id_status_switch3
     id_status_switch4: id_status_switch4
 
-
-
-    BoxLayout:
-        orientation:'vertical'
-        
-        Label:
-            background_color: 220/255, 223/255, 224/255, 1
-            canvas.before:
-                Color:
-                    rgba: self.background_color
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            id: id_status_switch
-            text: 'WiFi Switch Controller\nFür die Könige'
-            font_size: 40
-            color: 34/255, 164/255, 224/255, 1
-            halign: 'center'
-            valign: 'center'
-            
-        
-        BoxLayout:
-            orientation:'horizontal'
-            size: 600, 150
-
-            Label:
-                id: id_name_switch
-                text: 'Globus'
-                font_size: 32
-
-            Label:
-                id: id_status_switch
-                text: "-"
-                font_size: 32
-
-            Switch:
-                id: id_switch
-                active: root.initializeWifiStatus('192.168.0.100')
-                on_active: root.switch_click('192.168.0.100', 'switch1')
+    FloatLayout:
+        Image:
+            background_color: 220/255, 223/255, 224/255, 0.1
+            source: 'data/background.png'
 
         BoxLayout:
-            orientation:'horizontal'
-            size: 600, 150
+            orientation:'vertical'
 
             Label:
-                id: id_name_switch2
-                text: 'Platzhalter'
-                font_size: 24
-
-            Label:
-                id: id_status_switch2
-                text: "-"
-                font_size: 64
-
-            Switch:
-                id: id_switch2
+                # background_color: 220/255, 223/255, 224/255, 0.5
+                # canvas.before:
+                #     Color:
+                #         rgba: self.background_color
+                #     Rectangle:
+                #         size: self.size
+                #         pos: self.pos
+               
+                text: 'Smart Home Controller'
+                font_name: 'fonts/SitkaB.ttc'
+                font_size: 40
+                color: 168/255, 9/255, 241/255, 1  #dark-purple
+                halign: 'center'
+                valign: 'center'
+                size_hint: 1, None
                 
-
-        BoxLayout:
-            orientation:'horizontal'
-            
-            Label:
-                id: id_name_switch3
-                text: 'Platzhalter'
-                font_size: 24
-
-            Label:
-                id: id_status_switch3
-                text: "-"
-                font_size: 64
-
-            Switch:
-                id: id_switch3
+                height: 50
                 
-                
-        BoxLayout:
-            orientation:'horizontal'
-            
-            Label:
-                id: id_name_switch4
-                text: 'Platzhalter'
-                font_size: 24
+            Image:
+                source: 'data/header_icon.png'
+                size_hint_y: None
+                height: dp(70)
+                allow_stretch: False
+               
+            BoxLayout:
+                orientation:'horizontal'
 
-            Label:
-                id: id_status_switch4
-                text: "-"
-                font_size: 64
+                AnchorLayout:
+                    anchor_x: 'right'
+                    anchor_y: 'center'
+                    
+                    Image:
+                        source: 'data/idea_50.png'
+                        size_hint: None, None
+                        width: 50
+                        height: 50
+                    
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'
 
-            Switch:
-                id: id_switch4
+                    Label:
+                        id: id_name_switch
+                        text: 'Globus'
+                        font_name: 'fonts/SitkaI.ttc'
+                        font_size: 32
+                        size_hint: None, None
+                        width: 150
+                        height: 32
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'  
+                    Label:
+                        id: id_status_switch
+                        text: "-"
+                        font_name: 'fonts/SitkaB.ttc'
+                        font_size: 32
+                        size_hint: None, None
+                        width: 150
+                        height: 32
+                        outline_color: 168/255, 9/255, 241/255, 1
+                        outline_width: 1
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'
+                    Switch:
+                        id: id_switch
+                        active: root.initializeWifiStatus('192.168.0.100')
+                        on_active: root.switch_click('192.168.0.100', 'switch1')
+                        size_hint: None, None
+                        width: 80
+                        height: 32
+
+               
+                   
+         
+                    
+
+            BoxLayout:
+                orientation:'horizontal'
+
+                AnchorLayout:
+                    anchor_x: 'right'
+                    anchor_y: 'center'
+                    
+                    Image:
+                        source: 'data/idea_50.png'
+                        size_hint: None, None
+                        width: 50
+                        height: 50
+                    
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'
+
+                    Label:
+                        id: id_name_switch2
+                        text: 'Platzhalter'
+                        font_name: 'fonts/SitkaI.ttc'
+                        font_size: 32
+                        size_hint: None, None
+                        width: 200
+                        height: 32
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'  
+                    Label:
+                        id: id_status_switch2
+                        text: "N/A"
+                        font_name: 'fonts/SitkaB.ttc'
+                        font_size: 32
+                        size_hint: None, None
+                        width: 150
+                        height: 32
+                        outline_color: 168/255, 9/255, 241/255, 1
+                        outline_width: 1
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'
+                    Switch:
+                        id: id_switch2
+                        # active: root.initializeWifiStatus('192.168.0.100')
+                        # on_active: root.switch_click('192.168.0.100', 'switch1')
+                        size_hint: None, None
+                        width: 80
+                        height: 32
+                    
+
+            BoxLayout:
+                orientation:'horizontal'
+
+                AnchorLayout:
+                    anchor_x: 'right'
+                    anchor_y: 'center'
+                    
+                    Image:
+                        source: 'data/idea_50.png'
+                        size_hint: None, None
+                        width: 50
+                        height: 50
+                    
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'
+
+                    Label:
+                        id: id_name_switch3
+                        text: 'Platzhalter'
+                        font_name: 'fonts/SitkaI.ttc'
+                        font_size: 32
+                        size_hint: None, None
+                        width: 200
+                        height: 32
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'  
+                    Label:
+                        id: id_status_switch3
+                        text: "N/A"
+                        font_name: 'fonts/SitkaB.ttc'
+                        font_size: 32
+                        size_hint: None, None
+                        width: 150
+                        height: 32
+                        outline_color: 168/255, 9/255, 241/255, 1
+                        outline_width: 1
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'
+                    Switch:
+                        id: id_switch3
+                        # active: root.initializeWifiStatus('192.168.0.100')
+                        # on_active: root.switch_click('192.168.0.100', 'switch1')
+                        size_hint: None, None
+                        width: 80
+                        height: 32
+                    
+                    
+            BoxLayout:
+                orientation:'horizontal'
+
+                AnchorLayout:
+                    anchor_x: 'right'
+                    anchor_y: 'center'
+                    
+                    Image:
+                        source: 'data/idea_50.png'
+                        size_hint: None, None
+                        width: 50
+                        height: 50
+                    
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'
+
+                    Label:
+                        id: id_name_switch4
+                        text: 'Platzhalter'
+                        font_name: 'fonts/SitkaI.ttc'
+                        font_size: 32
+                        size_hint: None, None
+                        width: 200
+                        height: 32
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'  
+                    Label:
+                        id: id_status_switch4
+                        text: "N/A"
+                        font_name: 'fonts/SitkaB.ttc'
+                        font_size: 32
+                        size_hint: None, None
+                        width: 150
+                        height: 32
+                        outline_color: 168/255, 9/255, 241/255, 1
+                        outline_width: 1
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'center'
+                    Switch:
+                        id: id_switch4
+                        # active: root.initializeWifiStatus('192.168.0.100')
+                        # on_active: root.switch_click('192.168.0.100', 'switch1')
+                        size_hint: None, None
+                        width: 80
+                        height: 32
                 

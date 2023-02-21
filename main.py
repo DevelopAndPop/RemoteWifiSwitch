@@ -1,6 +1,8 @@
 import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.anchorlayout import AnchorLayout
 from kivy.network.urlrequest import UrlRequest
 from kivy.uix.slider import Slider
 from kivy.properties import BooleanProperty
@@ -59,11 +61,13 @@ class MyRoot(BoxLayout):
 
             if "STATE=OFF" in httpResult.result:
                 self.ids[switchStatus].text = "Ist Aus"
-                self.ids[switchStatus].color = 'darkred'              
+                self.ids[switchStatus].color = 'black'              
+                self.ids[switchStatus].outline_color = 168/255, 9/255, 241/255, 1
 
             elif "STATE=ON" in httpResult.result:
                 self.ids[switchStatus].text = "Ist An"
-                self.ids[switchStatus].color = 'darkgreen'       
+                self.ids[switchStatus].color = 168/255, 9/255, 241/255, 1       
+                self.ids[switchStatus].outline_color = 'black'
             
             return httpResult
         
