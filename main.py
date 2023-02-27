@@ -3,10 +3,12 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.behaviors import ButtonBehavior
 from kivy.network.urlrequest import UrlRequest
 from kivy.uix.slider import Slider
 from kivy.properties import BooleanProperty
 import Global
+
 
 kivy.require('2.1.0')
 
@@ -14,9 +16,15 @@ class MyRoot(BoxLayout):
 
         def __init__(self):
             super(MyRoot, self).__init__()
-            # print(self.ids) → used for listing up available objects in .kv file
+            # print(self.ids) #→ used for listing up available objects in .kv file
+   
+        def checkWifiConnection(self):
             self.checkSwitchStatus('192.168.0.100', 'switch1')
-                
+            self.initializeWifiStatus('192.168.0.100')
+
+        def changeOfflineColors(self):
+            self.ids['id_headline'].color = 247/255, 220/255, 247/255, 1
+
         def request_callback(self, req, result):
             print(f'HttpStatus: {req.resp_status}')
             print(f'Response Headers: {req.resp_headers}')
