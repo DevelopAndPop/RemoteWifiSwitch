@@ -68,12 +68,12 @@ class MyRoot(BoxLayout):
             else: print('Steckdose undefiniert!')
 
             if "STATE=OFF" in httpResult.result:
-                self.ids[switchStatus].text = "Ist Aus"
+                self.ids[switchStatus].text = "Aus"
                 self.ids[switchStatus].color = 'black'              
                 self.ids[switchStatus].outline_color = 168/255, 9/255, 241/255, 1
 
             elif "STATE=ON" in httpResult.result:
-                self.ids[switchStatus].text = "Ist An"
+                self.ids[switchStatus].text = "An"
                 self.ids[switchStatus].color = 168/255, 9/255, 241/255, 1       
                 self.ids[switchStatus].outline_color = 'black'
             
