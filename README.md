@@ -1,6 +1,7 @@
 ﻿# RemoteWifiSwitch
-    Used language:          Python
-    App building framework: Kivy 
+    Used language:          Python 3.9.0
+    App building framework: Kivy 2.1.0
+        
 ## To-Do List:
  
  - create a SwitchOn/SwitchOff modular function ✅
