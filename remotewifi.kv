@@ -75,6 +75,8 @@
                         font_name: 'fonts/SitkaHeading-Italic-04.ttf'
                         font_size: self.width/4
                         size_hint: 1,1
+                        outline_color: 'black'
+                        outline_width: 1
                         
                 AnchorLayout:
                     anchor_x: 'center'
@@ -94,12 +96,27 @@
                     anchor_y: 'center'
                     Switch:
                         id: id_switch
-                        # active: root.initializeWifiStatus('192.168.0.100')
+                        active: root.initializeWifiStatus('192.168.0.100')
                         on_active: root.switch_click('192.168.0.100', 'switch1')
                         size_hint: None, None
                         width: 80
                         height: 45
+            BoxLayout:
+                orientation:'horizontal'
 
+                Label:
+                    id: id_status_time
+                    text: 'Zuletzt eingeschaltet: [...]'
+                    font_name: 'fonts/SitkaHeading-Italic-04.ttf'
+                    font_size: self.height
+                    text_size: self.size
+                    text_hint: 1, 1
+                    size_hint: 1,0.3
+                    outline_color: 'black'
+                    outline_width: 1
+                    halign: 'right'
+                    padding_x: self.width/7
+                    
             BoxLayout:
                 orientation:'horizontal'
 
@@ -121,7 +138,9 @@
                         font_name: 'fonts/SitkaHeading-Italic-04.ttf'
                         font_size: self.width/4
                         size_hint: 1,1
-                        
+                        outline_color: 'black'
+                        outline_width: 1
+
                 AnchorLayout:
                     anchor_x: 'left'
                     anchor_y: 'center'  
@@ -140,11 +159,25 @@
                     Switch:
                         id: id_switch2
                         # active: root.initializeWifiStatus('192.168.0.100')
-                        on_active: root.time()
+                        # on_active: root.getTime()
                         size_hint: None, None
                         width: 80
                         height: 45
-                    
+
+            BoxLayout:
+                orientation:'horizontal'
+
+                Label:
+                    id: id_status_time2
+                    text: 'Zuletzt eingeschaltet: [...]'
+                    font_name: 'fonts/SitkaHeading-Italic-04.ttf'
+                    font_size: self.height
+                    text_size: self.size
+                    size_hint: 1,0.3
+                    outline_color: 'black'
+                    outline_width: 1
+                    halign: 'right'
+                    padding_x: self.width/7
 
             BoxLayout:
                 orientation:'horizontal'
@@ -167,6 +200,8 @@
                         font_name: 'fonts/SitkaHeading-Italic-04.ttf'
                         font_size: self.width/4
                         size_hint: 1,1
+                        outline_color: 'black'
+                        outline_width: 1
 
                 AnchorLayout:
                     anchor_x: 'left'
@@ -190,7 +225,21 @@
                         size_hint: None, None
                         width: 80
                         height: 45
-                    
+            
+            BoxLayout:
+                orientation:'horizontal'
+
+                Label:
+                    id: id_status_time3
+                    text: 'Zuletzt eingeschaltet: [...]'
+                    font_name: 'fonts/SitkaHeading-Italic-04.ttf'
+                    font_size: self.height
+                    text_size: self.size
+                    size_hint: 1,0.3
+                    outline_color: 'black'
+                    outline_width: 1
+                    halign: 'right'
+                    padding_x: self.width/7
                     
             BoxLayout:
                 orientation:'horizontal'
@@ -213,7 +262,7 @@
                         font_name: 'fonts/SitkaHeading-Italic-04.ttf'
                         font_size: self.width/4
                         size_hint: 1,1
-                        outline_color: 0/255, 0/255, 0/255, 1
+                        outline_color: 'black'
                         outline_width: 1
 
                 AnchorLayout:
@@ -233,11 +282,27 @@
                     anchor_y: 'center'
                     Switch:
                         id: id_switch4
-                        # active: root.initializeWifiStatus('192.168.0.100')
+                        # active: root.initializeOnOffLogger()
+                        on_active: root.initializeOnOffLogger()
                         # on_active: root.switch_click('192.168.0.100', 'switch1')
                         size_hint: None, None
                         width: 80
                         height: 45
+
+            BoxLayout:
+                orientation:'horizontal'
+
+                Label:
+                    id: id_status_time4
+                    text: 'Zuletzt eingeschaltet: [...]'
+                    font_name: 'fonts/SitkaHeading-Italic-04.ttf'
+                    font_size: self.height
+                    text_size: self.size
+                    size_hint: 1,0.3
+                    outline_color: 'black'
+                    outline_width: 1
+                    halign: 'right'
+                    padding_x: self.width/7
 
 
                 

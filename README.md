@@ -10,7 +10,7 @@
  - When starting the app get the current status of the Wifi plug and change the switch accordingly ✅
  
  - Implement a time scheduler (For planned on/off) 👷
- - Implement a history of on/off actions 👷
+ - Implement a history of on/off actions 👷 (Began on 13th March `23)
  
  ## To-Do List (unplanned):
  
